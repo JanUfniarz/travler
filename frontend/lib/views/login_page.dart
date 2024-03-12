@@ -24,7 +24,7 @@ class LoginPage extends StatelessWidget {
                 style: TextStyles.simpleLight,
               ),
             ) as Widget,
-          ] + List.generate(2, (index) => Card(
+          ] + List.generate(notifier.registration ? 3 : 2, (index) => Card(
             elevation: 40,
             color: Pal.background2,
             child: Padding(
@@ -32,13 +32,14 @@ class LoginPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(["Login:", "Password:"][index],
+                  Text(["Login:", "Password:", "Repeat password:"][index],
                     style: TextStyles.simpleLight,
                   ),
                   TextField(
                     onChanged: [
                           (String text) => notifier.login = text,
                           (String text) => notifier.password = text,
+                          (String text) => notifier.repeatPassword = text,
                     ][index],
                   ),
                 ],
@@ -51,21 +52,21 @@ class LoginPage extends StatelessWidget {
               width: 150,
               child: ElevatedButton(
                 onPressed: [
-                      () {print("${notifier.login}, ${notifier.password}");},
-                      () {},
+                      () => notifier.go(),
+                      () => notifier.registration = !notifier.registration,
                 ][index],
                 style: ElevatedButton.styleFrom(
                     backgroundColor: [Pal.primary, Pal.background2][index]
                 ),
-                child: Text(["Log in", "Register"][index],
+                child: Text((notifier.registration ? ["Sign in", "Back"] : ["Log in", "Register"])[index],
                   style: [TextStyles.simpleDark, TextStyles.simpleLight][index],
                 ),
               ),
             ),
           ) as Widget)..insert(4,
-            Text("You don't have an account?",
+            !notifier.registration ? Text("You don't have an account?",
                 style: TextStyles.simpleLight
-            ),
+            ) : const SizedBox(),
           ),
         ),
       ),

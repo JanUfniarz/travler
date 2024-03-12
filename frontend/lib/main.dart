@@ -11,5 +11,5 @@ void main()=> runApp(MultiProvider(
         value: LoginCN(),
       ),
     ],
-    child: MaterialApp(home: LoginPage())
+    child: const MaterialApp(home: LoginPage())
 ));
