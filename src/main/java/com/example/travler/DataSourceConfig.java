@@ -11,11 +11,11 @@ import javax.sql.DataSource;
 @Configuration
 public class DataSourceConfig {
     private static final String DB_NAME = "travler";
-    private static final String DB_USER = "postgres";
-    private static final String DB_PASS = "postgres";
+    private static final String DB_USER = "test";
+    private static final String DB_PASS = "test";
     private static final String PROJECT = "level-sol-415712";
     private static final String REGION = "europe-central2";
-    private static final String INSTANCE = "qwertyuiop";
+    private static final String INSTANCE = "QWERTYUIOP";
 
     @Bean
     public DataSource dataSource() {
@@ -31,6 +31,8 @@ public class DataSourceConfig {
                 "cloudSqlInstance",
                 String.format("%s:%s:%S", PROJECT, REGION, INSTANCE)
         );
+
+        config.addDataSourceProperty("ipTypes", "PUBLIC,PRIVATE");
 
         return new HikariDataSource(config);
     }

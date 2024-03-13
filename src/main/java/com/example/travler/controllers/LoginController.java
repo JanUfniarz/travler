@@ -15,7 +15,7 @@ public class LoginController {
     public record LoginData(String login, String password) {}
 
     private final LoginService service;
-    //? Jestem Jan McSmród i jestem najmądrzejszym progamanistą na tym świecie chuje
+
     @Autowired
     public LoginController(LoginService service) {
         this.service = service;

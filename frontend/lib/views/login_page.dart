@@ -52,7 +52,7 @@ class LoginPage extends StatelessWidget {
               width: 150,
               child: ElevatedButton(
                 onPressed: [
-                      () => notifier.go(),
+                      () => notifier.go(context),
                       () => notifier.registration = !notifier.registration,
                 ][index],
                 style: ElevatedButton.styleFrom(
