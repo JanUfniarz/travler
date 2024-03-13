@@ -21,15 +21,6 @@ public class LoginController {
         this.service = service;
     }
 
-    @PostMapping(path = "auth")
-    public Map<String, Object> login(@RequestBody LoginData data) {
-        boolean auth = service.authorizationPassed(data.login(), data.password());
-        return new HashMap<>() {{
-            put("status", auth);
-            put("message", auth ? "Authorization passed" : "Authorization failed");
-        }};
-    }
-
     @PostMapping(path = "{command}")
     public Map<String, Object> register(
             @PathVariable String command,

@@ -5,3 +5,14 @@ services:
     build: .
     ports:
       - "8080:8080"
+
+  database:
+    image: postgres:latest
+    volumes:
+      - ./data_volume:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: travler
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    expose:
+      - 5432
