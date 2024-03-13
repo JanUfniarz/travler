@@ -32,9 +32,6 @@ COPY --from=mvn-builder app/target/travler-0.0.1.jar ./app.jar
 COPY src/main/resources/application.properties ./config/application.properties
 COPY --from=flutter-builder /app/build/web ./static
 
-COPY credentials.json credentials.json
-ENV GOOGLE_APPLICATION_CREDENTIALS=/app/credentials.json
-
 EXPOSE 8080
 
 CMD ["java", "-jar", "app.jar"]
