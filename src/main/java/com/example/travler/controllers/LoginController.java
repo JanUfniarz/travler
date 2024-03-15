@@ -23,7 +23,7 @@ public class LoginController {
 
     @PostMapping
     public Map<String, Object> register(
-            @RequestPart("c") String command,
+            @RequestParam("c") String command,
             @RequestBody LoginData data
     ) {
         boolean success = false;
