@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class LoginCN extends ChangeNotifier {
-  static const String domain = "localhost:8080";
+  static const String domain = "34.118.69.221";
   static const String path = "login";
   static const int version = 1;
   static const Map<String, String> headers = {"Content-Type": "application/json"};
