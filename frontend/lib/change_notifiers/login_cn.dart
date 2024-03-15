@@ -38,9 +38,7 @@ class LoginCN extends ChangeNotifier {
       "password": password
     });
 
-    var res = registration
-        ? await http.post(url, body: body, headers: headers)
-        : await http.put(url, body: body, headers: headers);
+    var res = await http.post(url, body: body, headers: headers);
 
     show(context, res.body);
   }
