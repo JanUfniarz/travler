@@ -21,9 +21,9 @@ public class LoginController {
         this.service = service;
     }
 
-    @PostMapping(path = "{command}")
+    @PostMapping
     public Map<String, Object> register(
-            @PathVariable String command,
+            @RequestPart("c") String command,
             @RequestBody LoginData data
     ) {
         boolean success = false;

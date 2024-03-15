@@ -31,7 +31,7 @@ class LoginCN extends ChangeNotifier {
     }
 
     Uri url = Uri.parse(
-        "http://$domain/v$version/$path/${registration ? "register" : "auth"}");
+        "http://$domain/v$version/$path?c=${registration ? "register" : "auth"}");
 
     var body = jsonEncode({
       "login": login,
