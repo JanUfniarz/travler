@@ -9,7 +9,7 @@ services:
   database:
     image: postgres:latest
     volumes:
-      - ~/data_volume:/var/lib/postgresql/data
+      - ./data_volume:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: travler
       POSTGRES_USER: postgres
